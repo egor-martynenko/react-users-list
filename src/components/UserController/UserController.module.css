@@ -1,10 +1,19 @@
 .userController{
+    margin-top: 24px;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
 }
-
-.userController:last-child{
+.leftGroup{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.inputWrapper{
+    border-right: 2px solid #18191A;
+    padding-right: 16px;
+}
+.addButton{
     margin-left: auto;
 }

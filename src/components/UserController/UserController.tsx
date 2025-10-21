@@ -1,9 +1,10 @@
 import {Input} from "../ui/Input/Input.tsx";
 import {Button} from "../ui/Button/Button.tsx";
+import styles from './UserController.module.css'
 
 export const UserController = () => {
   return (
-    <div className="userController">
+    <div className={styles.userController}>
       <Input/>
       <Button>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

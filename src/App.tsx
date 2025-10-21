@@ -1,21 +1,8 @@
-import './App.css'
-import {Breadcrumbs} from "./components/Breadcrumbs/Breadcrumbs.tsx";
-
-import {UsersList} from "./components/UsersList/UsersList.tsx";
-import {UserController} from "./components/UserController/UserController.tsx";
-import {Footer} from "./components/Footer/Footer.tsx";
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
 function App() {
-
-  return (
-    <>
-      <Breadcrumbs/>
-      <h2>Пользователи</h2>
-      <UserController/>
-      <UsersList />
-      <Footer/>
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

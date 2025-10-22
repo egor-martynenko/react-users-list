@@ -2,7 +2,7 @@ import type {ComponentProps, FC} from "react";
 import styles from './Button.module.css'
 import classNames from "classnames";
 
-export type ButtonProps = ComponentProps<'button'> & {
+type ButtonProps = ComponentProps<'button'> & {
   isPrimary?: boolean;
   vsIcon?: boolean;
 }

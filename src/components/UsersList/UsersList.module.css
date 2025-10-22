@@ -1,20 +1,60 @@
 .usersList_wrapper{
     width: 100%;
+    margin-top: 32px;
+}
+.usersList_table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    table-layout: fixed;
+    text-align: left;
 }
 .usersList_header{
     height: 58px;
 }
-.usersList_header tr th{
+.headerGroup{
+    color: #5F6166;
+    padding-left: 16px;
+}
+.headerGroup span{
+    margin-left: 8px;
+    font-size: 12px;
+    line-height: 16px;
     color: #5F6166;
 }
 .usersList_item{
-    background-color: rgb(24, 25, 26);
+    background-color: #101112;
     height: 60px;
     border-radius: 8px;
 }
-.usersList_item td{
-    margin-top: 8px;
+.dragIcon{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #18191A;
+    border-radius: 8px;
+    cursor: pointer;
 }
+.usersList_content{
+    padding: 0 8px 0 16px;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.usersList_input{
+    padding: 4px 8px;
+    border-radius: 8px;
+    max-width: 100%;
+}
+.usersList_input:hover,
+.usersList_input:focus{
+    background-color: #232426;
+}
+
 .usersList_item td:first-child{
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -22,15 +62,6 @@
 .usersList_item td:last-child{
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-}
-
-.usersList_table{
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 8px;
-    table-layout: fixed;
-    text-align: left;
-
 }
 .usersList_footer{
     display: flex;

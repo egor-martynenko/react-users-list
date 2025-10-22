@@ -1,0 +1,98 @@
+.dropdownList {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdownTrigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border 0.2s ease;
+}
+.dropdownTrigger input{
+    width: 100%;
+}
+
+.dropdownTrigger:hover,
+.dropdownTrigger.active {
+    border:1px solid white;
+}
+
+.selectedValue {
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.arrow {
+    color: #666;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrowDown {
+    transform: rotate(0deg);
+}
+
+.arrowUp {
+    transform: rotate(180deg);
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 2px solid #303133;
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 320px;
+    max-height: 116px;
+    overflow-y: auto;
+    margin-top: 8px;
+    background-color: #18191A;
+    border-radius: 8px;
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background: none;
+        border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: none;
+        border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: none;
+    }
+    scrollbar-width: thin;
+    scrollbar-color: #48494D #18191A;
+}
+
+.dropdownItem {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: white;
+    border-radius: 8px;
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.dropdownItem:not(:last-child){
+    margin-bottom: 8px;
+}
+.dropdownItem.active,
+.dropdownItem:hover {
+    background-color: #303133;
+}

@@ -2,6 +2,9 @@ import styles from './UsersList.module.css'
 
 import { useState } from "react";
 import {Button} from "../ui/Button/Button.tsx";
+import {ArrowIcon} from "../../assets/svg/ArrowIcon.tsx";
+import {Ellipsis} from "../../assets/svg/Ellipsis.tsx";
+import {DropdownList} from "../ui/DropdownList /DropdownList.tsx";
 
 const usersData = [
   {
@@ -61,58 +64,58 @@ export const UsersList = () => {
         <thead className={styles.usersList_header}>
         <tr>
           <th>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.25 1.5C5.25 1.08579 5.58579 0.75 6 0.75C6.41422 0.75 6.75 1.08579 6.75 1.5V8.68945L8.96973 6.46973C9.26262 6.17683 9.73738 6.17683 10.0303 6.46973C10.3232 6.76262 10.3232 7.23738 10.0303 7.53027L6.53028 11.0303C6.23738 11.3232 5.76262 11.3232 5.46973 11.0303L1.96973 7.53027C1.67684 7.23738 1.67684 6.76262 1.96973 6.46973C2.24433 6.19512 2.67906 6.17766 2.97364 6.41797L3.03028 6.46973L5.25 8.68945V1.5Z" fill="#5F6166"/>
-            </svg>
-            <span>ID</span>
+            <div className={styles.headerGroup}>
+              <ArrowIcon/>
+              <span>ID</span>
+            </div>
           </th>
           <th>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.25 1.5C5.25 1.08579 5.58579 0.75 6 0.75C6.41422 0.75 6.75 1.08579 6.75 1.5V8.68945L8.96973 6.46973C9.26262 6.17683 9.73738 6.17683 10.0303 6.46973C10.3232 6.76262 10.3232 7.23738 10.0303 7.53027L6.53028 11.0303C6.23738 11.3232 5.76262 11.3232 5.46973 11.0303L1.96973 7.53027C1.67684 7.23738 1.67684 6.76262 1.96973 6.46973C2.24433 6.19512 2.67906 6.17766 2.97364 6.41797L3.03028 6.46973L5.25 8.68945V1.5Z" fill="#5F6166"/>
-            </svg>
-            <span>Роль</span>
+            <div className={styles.headerGroup}>
+              <ArrowIcon/>
+              <span>Роль</span>
+            </div>
           </th>
           <th>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.25 1.5C5.25 1.08579 5.58579 0.75 6 0.75C6.41422 0.75 6.75 1.08579 6.75 1.5V8.68945L8.96973 6.46973C9.26262 6.17683 9.73738 6.17683 10.0303 6.46973C10.3232 6.76262 10.3232 7.23738 10.0303 7.53027L6.53028 11.0303C6.23738 11.3232 5.76262 11.3232 5.46973 11.0303L1.96973 7.53027C1.67684 7.23738 1.67684 6.76262 1.96973 6.46973C2.24433 6.19512 2.67906 6.17766 2.97364 6.41797L3.03028 6.46973L5.25 8.68945V1.5Z" fill="#5F6166"/>
-            </svg>
-            <span>Имя</span>
+            <div className={styles.headerGroup}>
+              <ArrowIcon/>
+              <span>Имя</span>
+            </div>
           </th>
           <th>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.25 1.5C5.25 1.08579 5.58579 0.75 6 0.75C6.41422 0.75 6.75 1.08579 6.75 1.5V8.68945L8.96973 6.46973C9.26262 6.17683 9.73738 6.17683 10.0303 6.46973C10.3232 6.76262 10.3232 7.23738 10.0303 7.53027L6.53028 11.0303C6.23738 11.3232 5.76262 11.3232 5.46973 11.0303L1.96973 7.53027C1.67684 7.23738 1.67684 6.76262 1.96973 6.46973C2.24433 6.19512 2.67906 6.17766 2.97364 6.41797L3.03028 6.46973L5.25 8.68945V1.5Z" fill="#5F6166"/>
-            </svg>
-            <span>Логин</span>
+            <div className={styles.headerGroup}>
+              <ArrowIcon/>
+              <span>Логин</span>
+            </div>
           </th>
           <th>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.25 1.5C5.25 1.08579 5.58579 0.75 6 0.75C6.41422 0.75 6.75 1.08579 6.75 1.5V8.68945L8.96973 6.46973C9.26262 6.17683 9.73738 6.17683 10.0303 6.46973C10.3232 6.76262 10.3232 7.23738 10.0303 7.53027L6.53028 11.0303C6.23738 11.3232 5.76262 11.3232 5.46973 11.0303L1.96973 7.53027C1.67684 7.23738 1.67684 6.76262 1.96973 6.46973C2.24433 6.19512 2.67906 6.17766 2.97364 6.41797L3.03028 6.46973L5.25 8.68945V1.5Z" fill="#5F6166"/>
-            </svg>
-            <span>Должность</span>
+            <div className={styles.headerGroup}>
+              <ArrowIcon/>
+              <span>Должность</span>
+            </div>
           </th>
           <th>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.25 1.5C5.25 1.08579 5.58579 0.75 6 0.75C6.41422 0.75 6.75 1.08579 6.75 1.5V8.68945L8.96973 6.46973C9.26262 6.17683 9.73738 6.17683 10.0303 6.46973C10.3232 6.76262 10.3232 7.23738 10.0303 7.53027L6.53028 11.0303C6.23738 11.3232 5.76262 11.3232 5.46973 11.0303L1.96973 7.53027C1.67684 7.23738 1.67684 6.76262 1.96973 6.46973C2.24433 6.19512 2.67906 6.17766 2.97364 6.41797L3.03028 6.46973L5.25 8.68945V1.5Z" fill="#5F6166"/>
-            </svg>
-            <span>Контакты</span>
+            <div className={styles.headerGroup}>
+              <ArrowIcon/>
+              <span>Контакты</span>
+            </div>
           </th>
           <th>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.25 1.5C5.25 1.08579 5.58579 0.75 6 0.75C6.41422 0.75 6.75 1.08579 6.75 1.5V8.68945L8.96973 6.46973C9.26262 6.17683 9.73738 6.17683 10.0303 6.46973C10.3232 6.76262 10.3232 7.23738 10.0303 7.53027L6.53028 11.0303C6.23738 11.3232 5.76262 11.3232 5.46973 11.0303L1.96973 7.53027C1.67684 7.23738 1.67684 6.76262 1.96973 6.46973C2.24433 6.19512 2.67906 6.17766 2.97364 6.41797L3.03028 6.46973L5.25 8.68945V1.5Z" fill="#5F6166"/>
-            </svg>
-            <span>Почта</span>
+            <div className={styles.headerGroup}>
+              <ArrowIcon/>
+              <span>Почта</span>
+            </div>
           </th>
           <th>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.25 1.5C5.25 1.08579 5.58579 0.75 6 0.75C6.41422 0.75 6.75 1.08579 6.75 1.5V8.68945L8.96973 6.46973C9.26262 6.17683 9.73738 6.17683 10.0303 6.46973C10.3232 6.76262 10.3232 7.23738 10.0303 7.53027L6.53028 11.0303C6.23738 11.3232 5.76262 11.3232 5.46973 11.0303L1.96973 7.53027C1.67684 7.23738 1.67684 6.76262 1.96973 6.46973C2.24433 6.19512 2.67906 6.17766 2.97364 6.41797L3.03028 6.46973L5.25 8.68945V1.5Z" fill="#5F6166"/>
-            </svg>
-            <span>Телефон</span>
+            <div className={styles.headerGroup}>
+              <ArrowIcon/>
+              <span>Телефон</span>
+            </div>
           </th>
           <th>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.25 1.5C5.25 1.08579 5.58579 0.75 6 0.75C6.41422 0.75 6.75 1.08579 6.75 1.5V8.68945L8.96973 6.46973C9.26262 6.17683 9.73738 6.17683 10.0303 6.46973C10.3232 6.76262 10.3232 7.23738 10.0303 7.53027L6.53028 11.0303C6.23738 11.3232 5.76262 11.3232 5.46973 11.0303L1.96973 7.53027C1.67684 7.23738 1.67684 6.76262 1.96973 6.46973C2.24433 6.19512 2.67906 6.17766 2.97364 6.41797L3.03028 6.46973L5.25 8.68945V1.5Z" fill="#5F6166"/>
-            </svg>
-            <span>Город</span>
+            <div className={styles.headerGroup}>
+              <ArrowIcon/>
+              <span>Город</span>
+            </div>
           </th>
         </tr>
         </thead>
@@ -120,84 +123,116 @@ export const UsersList = () => {
         <tbody className={styles.usersList_body}>
         {users.map((user) => (
           <tr key={user.id} className={styles.usersList_item}>
-            <td>{user.id}</td>
+            <td>
+              <div className={styles.usersList_content}>
+                <span>{user.id}</span>
+                <div className={styles.dragIcon}>
+                  <Ellipsis/>
+                </div>
+              </div>
+            </td>
 
             <td>
+              <div className={styles.usersList_content}>
               <input
+                className={styles.usersList_input}
                 value={user.role}
+                name="role"
                 onChange={(e) =>
                   handleChange(user.id, "role", e.target.value)
                 }
               />
+              </div>
             </td>
 
             <td>
-              <input
-                value={user.userName}
-                onChange={(e) =>
-                  handleChange(user.id, "userName", e.target.value)
-                }
-              />
+              <div className={styles.usersList_content}>
+                <input
+                  className={styles.usersList_input}
+                  value={user.userName}
+                  name="userName"
+                  onChange={(e) =>
+                    handleChange(user.id, "userName", e.target.value)
+                  }
+                />
+              </div>
             </td>
 
             <td>
-              <input
-                value={user.login}
-                onChange={(e) =>
-                  handleChange(user.id, "login", e.target.value)
-                }
-              />
+              <div className={styles.usersList_content}>
+                <input
+                  className={styles.usersList_input}
+                  value={user.login}
+                  name="login"
+                  onChange={(e) =>
+                    handleChange(user.id, "login", e.target.value)
+                  }
+                />
+              </div>
             </td>
 
             <td>
-              <select
-                value={user.jobTitle}
-                onChange={(e) =>
-                  handleChange(user.id, "jobTitle", e.target.value)
-                }
-              >
-                {jobsData.map((job) => (
-                  <option key={job} value={job}>
-                    {job}
-                  </option>
-                ))}
-              </select>
+              <div className={styles.usersList_content}>
+                <DropdownList
+                  value={user.jobTitle}
+                  onChange={(e) => handleChange(user.id, 'jobTitle', e.target.value)}
+                  placeholder="Выберите роль"
+                  values={jobsData}
+                />
+              </div>
             </td>
 
             <td>
-              <input
-                value={user.contacts}
-                onChange={(e) =>
-                  handleChange(user.id, "contacts", e.target.value)
-                }
-              />
+              <div className={styles.usersList_content}>
+                <input
+                  className={styles.usersList_input}
+                  name="contacts"
+                  type="text"
+                  value={user.contacts}
+                  onChange={(e) =>
+                    handleChange(user.id, "contacts", e.target.value)
+                  }
+                />
+              </div>
             </td>
 
             <td>
-              <input
-                value={user.email}
-                onChange={(e) =>
-                  handleChange(user.id, "email", e.target.value)
-                }
-              />
+              <div className={styles.usersList_content}>
+                <input
+                  className={styles.usersList_input}
+                  value={user.email}
+                  name="email"
+                  onChange={(e) =>
+                    handleChange(user.id, "email", e.target.value)
+                  }
+                />
+              </div>
             </td>
 
             <td>
-              <input
-                value={user.phone}
-                onChange={(e) =>
-                  handleChange(user.id, "phone", e.target.value)
-                }
-              />
+              <div className={styles.usersList_content}>
+                <input
+                  className={styles.usersList_input}
+                  value={user.phone}
+                  name="phone"
+                  onChange={(e) =>
+                    handleChange(user.id, "phone", e.target.value)
+                  }
+                />
+              </div>
             </td>
 
             <td>
-              <input
-                value={user.city}
-                onChange={(e) =>
-                  handleChange(user.id, "city", e.target.value)
-                }
-              />
+              <div className={styles.usersList_content}>
+                <input
+                  className={styles.usersList_input}
+                  value={user.city}
+                  name="city"
+                  onChange={(e) =>
+                    handleChange(user.id, "city", e.target.value)
+                  }
+                />
+              </div>
             </td>
           </tr>
         ))}

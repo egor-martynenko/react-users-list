@@ -15,6 +15,7 @@
 .headerGroup{
     color: #5F6166;
     padding-left: 16px;
+    cursor: pointer;
 }
 .headerGroup span{
     margin-left: 8px;

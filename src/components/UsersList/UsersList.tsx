@@ -28,6 +28,50 @@ const usersData = [
     email: "dev@dev.ru",
     phone: "+72231242356",
     city: "Москва",
+  },
+  {
+    id: 34567,
+    role: "Пользователь",
+    userName: "Мария",
+    login: "dataAnalyst",
+    jobTitle: "Аналитик данных",
+    contacts: "@maria_analyst",
+    email: "maria@company.ru",
+    phone: "+79998887766",
+    city: "Санкт-Петербург",
+  },
+  {
+    id: 45678,
+    role: "Пользователь",
+    userName: "Дмитрий",
+    login: "backendDev",
+    jobTitle: "Back End разработчик",
+    contacts: "@dmitry_backend",
+    email: "dmitry@company.ru",
+    phone: "+79997776655",
+    city: "Новосибирск",
+  },
+  {
+    id: 56789,
+    role: "Модератор",
+    userName: "Екатерина",
+    login: "dataScientist",
+    jobTitle: "Data Scientist",
+    contacts: "@kate_science",
+    email: "kate@company.ru",
+    phone: "+79996665544",
+    city: "Екатеринбург",
+  },
+  {
+    id: 67890,
+    role: "Пользователь",
+    userName: "Андрей",
+    login: "qaEngineer",
+    jobTitle: "QA-инженер",
+    contacts: "@andrey_qa",
+    email: "andrey@company.ru",
+    phone: "+79995554433",
+    city: "Казань",
   }
 ];
 
@@ -43,6 +87,26 @@ const jobsData = [
 
 export const UsersList = () => {
   const [users, setUsers] = useState(usersData);
+  const [sortConfig, setSortConfig] = useState<{
+    key: keyof (typeof usersData)[0];
+    direction: 'asc' | 'desc';
+  } | null>(null);
+
+  const sortedUsers = [...users].sort((a, b) => {
+    if (!sortConfig) return 0;
+
+    const { key, direction } = sortConfig;
+    const aValue = a[key];
+    const bValue = b[key];
+
+    if (aValue < bValue) {
+      return direction === 'asc' ? -1 : 1;
+    }
+    if (aValue > bValue) {
+      return direction === 'asc' ? 1 : -1;
+    }
+    return 0;
+  });
 
   const handleChange = (
     id: number,
@@ -56,6 +120,16 @@ export const UsersList = () => {
     );
   };
 
+  const handleSort = (key: keyof (typeof usersData)[0]) => {
+    let direction: 'asc' | 'desc' = 'asc';
+
+    if (sortConfig && sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+
+    setSortConfig({ key, direction });
+  };
+
   return (
     <div className={styles.usersList_wrapper}>
       <table
@@ -63,57 +137,75 @@ export const UsersList = () => {
       >
         <thead className={styles.usersList_header}>
         <tr>
-          <th>
+          <th onClick={() => handleSort('id')}>
             <div className={styles.headerGroup}>
-              <ArrowIcon/>
+              <ArrowIcon direction={
+                sortConfig?.key === 'id' ? sortConfig.direction : null
+              } />
               <span>ID</span>
             </div>
           </th>
-          <th>
+          <th onClick={() => handleSort('role')}>
             <div className={styles.headerGroup}>
-              <ArrowIcon/>
+              <ArrowIcon direction={
+                sortConfig?.key === 'role' ? sortConfig.direction : null
+              } />
               <span>Роль</span>
             </div>
           </th>
-          <th>
+          <th onClick={() => handleSort('userName')}>
             <div className={styles.headerGroup}>
-              <ArrowIcon/>
+              <ArrowIcon direction={
+                sortConfig?.key === 'userName' ? sortConfig.direction : null
+              }/>
               <span>Имя</span>
             </div>
           </th>
-          <th>
+          <th onClick={() => handleSort('login')}>
             <div className={styles.headerGroup}>
-              <ArrowIcon/>
+              <ArrowIcon direction={
+                sortConfig?.key === 'login' ? sortConfig.direction : null
+              }/>
               <span>Логин</span>
             </div>
           </th>
-          <th>
+          <th onClick={() => handleSort('jobTitle')}>
             <div className={styles.headerGroup}>
-              <ArrowIcon/>
+              <ArrowIcon direction={
+                sortConfig?.key === 'jobTitle' ? sortConfig.direction : null
+              } />
               <span>Должность</span>
             </div>
           </th>
-          <th>
+          <th onClick={() => handleSort('contacts')}>
             <div className={styles.headerGroup}>
-              <ArrowIcon/>
+              <ArrowIcon direction={
+                sortConfig?.key === 'contacts' ? sortConfig.direction : null
+              } />
               <span>Контакты</span>
             </div>
           </th>
-          <th>
+          <th onClick={() => handleSort('email')}>
             <div className={styles.headerGroup}>
-              <ArrowIcon/>
+              <ArrowIcon direction={
+                sortConfig?.key === 'email' ? sortConfig.direction : null
+              } />
               <span>Почта</span>
             </div>
           </th>
-          <th>
+          <th onClick={() => handleSort('phone')}>
             <div className={styles.headerGroup}>
-              <ArrowIcon/>
+              <ArrowIcon direction={
+                sortConfig?.key === 'phone' ? sortConfig.direction : null
+              } />
               <span>Телефон</span>
             </div>
           </th>
-          <th>
+          <th onClick={() => handleSort('city')}>
             <div className={styles.headerGroup}>
-              <ArrowIcon/>
+              <ArrowIcon direction={
+                sortConfig?.key === 'city' ? sortConfig.direction : null
+              } />
               <span>Город</span>
             </div>
           </th>
@@ -121,7 +213,7 @@ export const UsersList = () => {
         </thead>
 
         <tbody className={styles.usersList_body}>
-        {users.map((user) => (
+        {sortedUsers.map((user) => (
           <tr key={user.id} className={styles.usersList_item}>
             <td>
               <div className={styles.usersList_content}>

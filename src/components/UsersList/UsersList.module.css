@@ -75,3 +75,6 @@
     padding: 0;
     gap: 16px;
 }
+.infoMessage{
+    color: rgba(255, 255, 255, 0.5);
+}

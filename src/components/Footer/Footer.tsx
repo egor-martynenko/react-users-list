@@ -13,7 +13,7 @@ export const Footer = () => {
         <a>Настройки Куки</a>
         <a>Главная</a>
       </div>
-      <span>@test</span>
+      <span className={styles.test}>@test</span>
     </footer>
   );
 };

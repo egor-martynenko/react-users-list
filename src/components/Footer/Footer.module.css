@@ -1,6 +1,21 @@
 .footer{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 .footer_links{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+.footer_links a {
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, .4);
+    cursor: pointer;
+}
+.test{
+    color: rgba(255, 255, 255, .2);
+    padding: 0 11px ;
 }
